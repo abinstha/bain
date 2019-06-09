@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>booking</title>
+		<meta charset="utf-8">
+		<meta name = "viewport" content = "width = device-width, initial-scale=1">
+		<title>Travel and Tourism</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+	</head>
+	<body>
+		<div class="booking-section container-fluid">
+			<div class="tab-section">
+				<ul class="tab" role="application">
+					<li class="tab-item active" id="bookATripdiv" role="tab">								
+						<a href="#" title="Book a trip">Book a trip</a>
+				    </li>
+					<li class="tab-item" id="retrieveBookingdiv" role="tab">									 
+						<a href="#" title="Manage Booking">Manage booking</a>
+				    </li>
+					<li class="tab-item" id="onlineCheckIndiv" role="tab">
+						<a href="#" title="Check in">Check in</a> 
+				    </li>
+					<li class="tab-item" id="flightStatusdiv" role="tab">				                
+				    <a href="#" title="Flight status">Flight status</a>
+				    </li>
+				</ul>
+			</div>
+			<div class="tab-wrapper">
+				<div data-bookatrip = "true" class="tab-heading">
+					<ul role="application" class="tab-nav">
+						<li role="tab" class="tab-nav-item active">
+							<a href="#" class="flights-booking-tab">
+								<span class="text">Flights</span>
+							</a>
+						</li><li role="tab" class="tab-nav-item">
+							<a href="#" class="hotel-booking-tab">
+								<span class="text">Hotels</span>
+							</a>
+						</li><li role="tab" class="tab-nav-item">
+							<a href="#" class="cars-booking-tab">
+								<span class="text">Cars</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-content">
+					<!--flights-section class starts here-->
+					<div class="flights-section show" id="flight-book">
+						<form action="" method="post" id="flight-booking" class="active form-book-travel form-book-flight">
+							<div class="tab-nav-content active">
+								<div class="form-group form-search-type">
+									<input type="radio" name="search-type" checked="checked" id="flight-search" value>
+									<label for="flight-search">Book Flights</label>
+								</div>
+							</div>
+							<fieldset>
+								<div class="form-group location-section">
+									<div class="from-location">
+										<label for="">From</label>
+										<fieldset>
+											<input type="text" name="from-location" placeholder="Search by city">
+										</fieldset>
+									</div><div class="destination-location">
+										<label for="">To</label>
+										<fieldset>
+											<input type="text" name="destination-location" placeholder="Search by city">
+										</fieldset>
+									</div>
+								</div>
+								<div class="flight-information">
+									<div class="form-group flight-type">
+										<div class="input-radio two-way" data-option="true">
+											<fieldset>
+										        <input name="tripType" id="trip-type-1" type="radio" checked="checked" value="return">
+										        <label for="trip-type-1">Return</label>
+											</fieldset>
+										</div>
+										<div class="input-radio one-way" data-option="true">
+											<fieldset>
+										        <input name="tripType" data-recent-search="oneWay" id="trip-type-2" type="radio" value="one_way">
+										        <label for="trip-type-2">One-way</label>
+											</fieldset>
+										</div>
+									</div>
+									<div class="flight-date form-group">
+										<div class="depart-section">
+											<label for="depart-date">Depart</label>
+											<div class="input-group date">
+												<input type="text" class="form-control depart-date" id="depart-date" name="date_of_depart">
+												<span class="input-group-addon">
+													<i class="far fa-calendar-alt"></i>
+												</span>
+											</div>
+										</div>
+										<div class="return-section">
+											<label for="return-date">Return</label>
+											<div class="input-group date">
+												<input type="text" class="form-control return-date" id="return-date" name="date_of_return">
+												<span class="input-group-addon">
+													<i class="far fa-calendar-alt"></i>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group flight-option">
+										<label>Class</label>
+										<div class="btn-group dropdown">
+												<button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											    Economy
+												</button>
+												<ul class="dropdown-menu flight-class">
+												   <li> <a class="dropdown-item active" href="#">Economy</a></li>
+												    <li><a class="dropdown-item" href="#">Premium Economy</a></li>
+												    <li><a class="dropdown-item" href="#">Business</a></li>
+												    <li><a class="dropdown-item" href="#">First/Suites</a></li>
+												</ul>
+											</div>
+									</div>
+									<div class="form-group number-of-passengers">
+										<div class="adults">
+											<label>Adults</label>
+											<div class="btn-group dropdown">
+												<button class="btn dropdown-toggle" id="selected" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											    2
+												</button>
+												<ul class="dropdown-menu scrollable-menu no-of-adults">
+												    <li><a class="dropdown-item" href="#">1</a></li>
+												    <li><a class="dropdown-item active" href="#">2</a></li>
+												    <li><a class="dropdown-item" href="#">3</a></li>
+												    <li><a class="dropdown-item" href="#">4</a></li>
+												    <li><a class="dropdown-item" href="#">5</a></li>
+												    <li><a class="dropdown-item" href="#">6</a></li>
+												    <li><a class="dropdown-item" href="#">7</a></li>
+												    <li><a class="dropdown-item" href="#">8</a></li>
+												    <li><a class="dropdown-item" href="#">9+</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="child">
+											<label>Child</label>
+											<div class="btn-group dropdown">
+												<button class="btn dropdown-toggle" id="selected" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">0</button>
+												<ul class="dropdown-menu no-of-child">
+												    <li><a class="dropdown-item active" href="#">0</a></li>
+												    <li><a class="dropdown-item" href="#">1</a></li>
+												    <li><a class="dropdown-item" href="#">2</a></li>
+												    <li><a class="dropdown-item" href="#">3</a></li>
+												    <li><a class="dropdown-item" href="#">4</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="infant">
+											<label>Infant</label>
+											<div class="btn-group dropdown">
+												<button class="btn dropdown-toggle" id="selected" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">0</button>
+												<ul class="dropdown-menu no-of-infant">
+													<li><a class="dropdown-item active" href="#">0</a></li>
+													<li><a class="dropdown-item" href="#">1</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<button class="btn search-btn" type="submit">Search Flights</button>
+								<!--Hidden Input Section-->
+								<div class="hidden-section">
+									<input type="text" name="type_of_class">
+									<input type="text" name="no_of_adults">
+									<input type="text" name="no_of_child">
+									<input type="text" name="no_of_infant">
+								</div>
+								<!--Hidden Input Section ends here-->
+							</fieldset>
+						</form>
+					</div>
+					<!--flights-section class ends here-->
+					<!--hotel-section class starts here-->
+					<div class="hotel-section" id="hotel-book">
+						<form action="" method="post" id="hotel-booking" class="form-book-travel form-book-hotel">
+							<fieldset>
+								<div class="form-group destination-location">
+									<label for="">Destination</label>
+									<fieldset>
+										<input type="text" name="destination-location" placeholder="City">
+									</fieldset>
+								</div>
+								<div class="checkinout-section form-group">
+									<div class="check-in-section form-group">
+										<label>Check-in</label>
+										<div class="input-group date">
+											<input type="text" class="form-control check-in-date" name="date_of_checkIn">
+											<span class="input-group-addon">
+												<i class="far fa-calendar-alt"></i>
+											</span>
+										</div>
+									</div>
+									<div class="check-out-section form-group">
+										<label>Check-out</label>
+										<div class="input-group date">
+											<input type="text" class="form-control check-out-date" id="return-date" name="date_of_checkOut">
+											<span class="input-group-addon">
+												<i class="far fa-calendar-alt"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="room-details-section form-group">
+									<div class="room">
+										<label>Room</label>
+										<div class="btn-group dropdown">
+											<button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1</button>
+											<ul class="dropdown-menu no-of-room">
+											    <li><a class="dropdown-item" href="#">0</a></li>
+											    <li><a class="dropdown-item active" href="#">1</a></li>
+											    <li><a class="dropdown-item" href="#">2</a></li>
+											    <li><a class="dropdown-item" href="#">3</a></li>
+											    <li><a class="dropdown-item" href="#">4</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="adults">
+										<label>Adults</label>
+										<div class="btn-group dropdown">
+											<button class="btn dropdown-toggle" id="selected" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    2
+											</button>
+											<ul class="dropdown-menu scrollable-menu no-of-adults">
+											    <li><a class="dropdown-item" href="#">1</a></li>
+											    <li><a class="dropdown-item" href="#">2</a></li>
+											    <li><a class="dropdown-item" href="#">3</a></li>
+											    <li><a class="dropdown-item" href="#">4</a></li>
+											    <li><a class="dropdown-item" href="#">5</a></li>
+											    <li><a class="dropdown-item" href="#">6</a></li>
+											    <li><a class="dropdown-item" href="#">7</a></li>
+											    <li><a class="dropdown-item" href="#">8</a></li>
+											    <li><a class="dropdown-item" href="#">9</a></li>
+											    <li><a class="dropdown-item" href="#">10</a></li>
+											    <li><a class="dropdown-item" href="#">11</a></li>
+											    <li><a class="dropdown-item" href="#">12</a></li>
+											    <li><a class="dropdown-item" href="#">13</a></li>
+											    <li><a class="dropdown-item" href="#">14</a></li>
+											    <li><a class="dropdown-item" href="#">15</a></li>
+											    <li><a class="dropdown-item" href="#">16</a></li>
+											    <li><a class="dropdown-item" href="#">17</a></li>
+											    <li><a class="dropdown-item" href="#">18</a></li>
+											    <li><a class="dropdown-item" href="#">19</a></li>
+											    <li><a class="dropdown-item" href="#">20</a></li>
+											    <li><a class="dropdown-item" href="#">21</a></li>
+											    <li><a class="dropdown-item" href="#">22</a></li>
+											    <li><a class="dropdown-item" href="#">23</a></li>
+											    <li><a class="dropdown-item" href="#">24</a></li>
+											    <li><a class="dropdown-item" href="#">25</a></li>
+											    <li><a class="dropdown-item" href="#">25+</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="child">
+										<label>Child</label>
+										<div class="btn-group dropdown">
+											<button class="btn dropdown-toggle" id="selected" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">0</button>
+											<ul class="dropdown-menu scrollable-menu no-of-child">
+											    <li><a class="dropdown-item" href="#">0</a></li>
+											    <li><a class="dropdown-item" href="#">1</a></li>
+											    <li><a class="dropdown-item" href="#">2</a></li>
+											    <li><a class="dropdown-item" href="#">3</a></li>
+											    <li><a class="dropdown-item" href="#">4</a></li>
+											    <li><a class="dropdown-item" href="#">5</a></li>
+											    <li><a class="dropdown-item" href="#">6</a></li>
+											    <li><a class="dropdown-item" href="#">7</a></li>
+											    <li><a class="dropdown-item" href="#">8</a></li>
+											    <li><a class="dropdown-item" href="#">9</a></li>
+											    <li><a class="dropdown-item" href="#">10</a></li>
+											    <li><a class="dropdown-item" href="#">10+</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<button class="btn search-btn" type="submit">Search Hotels</button>
+							</fieldset>
+						</form>
+					</div>
+					<!--hotel-section class ends here-->
+				</div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type='text/javascript' src='https://code.jquery.com/jquery-1.8.3.js'></script>
+		<script type='text/javascript' src="js/bootstrap-datepicker.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>
+
